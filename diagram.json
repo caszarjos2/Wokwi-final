@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 134.4, "left": -4.76, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 33.9,
+      "left": 154.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "board-ds18b20",
+      "id": "temp1",
+      "top": 186.58,
+      "left": 199.63,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led-bar-graph",
+      "id": "bargraph1",
+      "top": 379.2,
+      "left": 110.4,
+      "attrs": { "color": "lime" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 326.6, "left": 201.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 159.6,
+      "left": -53.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 218.6,
+      "left": -57.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 247.4,
+      "left": -76.8,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 10.36, "left": 163.2, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": 288.76, "left": 163.2, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "vcc3",
+      "top": 248.64,
+      "left": 163.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 155, "left": 163, "rotate": 180, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 105.6, "left": 162.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": 384, "left": 162.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": 489.6, "left": 153, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd5", "top": 172.8, "left": -87, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "ultrasonic1:GND", "gnd2:GND", "black", [ "h0" ] ],
+    [ "temp1:VCC", "vcc3:VCC", "red", [ "h0" ] ],
+    [ "temp1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "relay1:VCC", "vcc2:VCC", "red", [ "h0" ] ],
+    [ "relay1:GND", "gnd3:GND", "black", [ "h0" ] ],
+    [ "temp1:DQ", "esp:4", "green", [ "h-67.2", "v67.2" ] ],
+    [ "ultrasonic1:TRIG", "esp:12", "green", [ "h-201.6", "v201.2" ] ],
+    [ "ultrasonic1:ECHO", "esp:14", "green", [ "h-211.2", "v181.6" ] ],
+    [ "relay1:IN", "esp:5", "green", [ "h-67.2", "v-115.4" ] ],
+    [ "esp:GND.1", "btn1:1.l", "black", [ "h-67.05", "v-67.2" ] ],
+    [ "esp:GND.1", "btn2:1.l", "black", [ "h-86.25", "v-38.4" ] ],
+    [ "esp:15", "bargraph1:A1", "green", [ "v0", "h9.6", "v163.2" ] ],
+    [ "esp:2", "bargraph1:A2", "green", [ "h9.6", "v96" ] ],
+    [ "esp:0", "bargraph1:A3", "green", [ "h9.6", "v115.2" ] ],
+    [ "esp:16", "bargraph1:A4", "green", [ "h9.6", "v144" ] ],
+    [ "esp:17", "bargraph1:A5", "green", [ "h9.6", "v163.2" ] ],
+    [ "esp:18", "bargraph1:A6", "green", [ "h9.6", "v192" ] ],
+    [ "esp:19", "bargraph1:A7", "green", [ "h9.6", "v211.2" ] ],
+    [ "esp:21", "bargraph1:A8", "green", [ "h9.6", "v240" ] ],
+    [ "esp:22", "bargraph1:A9", "green", [ "h9.6", "v278.4" ] ],
+    [ "esp:23", "bargraph1:A10", "green", [ "h9.6", "v297.6" ] ],
+    [ "bargraph1:C10", "gnd4:GND", "green", [ "h19.42", "v28.79" ] ],
+    [ "bargraph1:C9", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C8", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C7", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C6", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C5", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C4", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C3", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C2", "gnd4:GND", "green", [ "h0" ] ],
+    [ "bargraph1:C1", "gnd4:GND", "green", [ "v0", "h19.42" ] ],
+    [ "esp:27", "btn2:2.r", "green", [ "h0" ] ],
+    [ "esp:26", "btn1:2.r", "green", [ "h0" ] ],
+    [ "esp:25", "led1:A", "green", [ "v-9.6", "h-28.65" ] ],
+    [ "led1:C", "gnd5:GND", "green", [ "v0", "h-18.8", "v-38.4", "h-19.2" ] ]
+  ],
+  "dependencies": {}
+}
